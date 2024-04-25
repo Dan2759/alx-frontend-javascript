@@ -6,32 +6,25 @@ export default class Pricing {
     this._currency = currency;
   }
 
-
   get amount() {
     return this._amount;
   }
-
-  set amount(value) {
-    if (typeof value !== 'number') {
-      throw new Error('TypeError: Amount must be the numbers');
-    }
-    this._amount = value;
-  }
-
 
   get currency() {
     return this._currency;
   }
 
-  set currency(value) {
-    this._currency = value;
+  set amount(amount) {
+    this._amount = amount;
   }
 
+  set currency(currency) {
+    this._currency = currency;
+  }
 
   displayFullPrice() {
     return `${this._amount} ${new Currency(this._currency.code, this._currency.name).displayFullCurrency()}`;
   }
-
 
   static convertPrice(amount, conversionRate) {
     return amount * conversionRate;
